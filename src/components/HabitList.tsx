@@ -1,13 +1,18 @@
 import HabitItem from './HabitItem';
 
-export type Habit = { id: string; name: string };
+export type Habit = { id: string; name: string; completions: Date[] };
 
 type HabitListProps = {
   habits: Habit[];
   deleteHabit: (id: string) => void;
+  toggleHabit: (id: string, date: Date) => void;
 };
 
-export default function HabitList({ habits, deleteHabit }: HabitListProps) {
+export default function HabitList({
+  habits,
+  deleteHabit,
+  toggleHabit,
+}: HabitListProps) {
   if (habits.length === 0) {
     return (
       <p className="text-center text-zinc-500 py-12">
@@ -19,7 +24,12 @@ export default function HabitList({ habits, deleteHabit }: HabitListProps) {
   return (
     <div className="flex flex-col gap-3">
       {habits.map(habit => (
-        <HabitItem deleteHabit={deleteHabit} key={habit.id} habit={habit} />
+        <HabitItem
+          deleteHabit={deleteHabit}
+          key={habit.id}
+          habit={habit}
+          toggleHabit={toggleHabit}
+        />
       ))}
     </div>
   );
