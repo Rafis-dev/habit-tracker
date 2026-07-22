@@ -11,9 +11,10 @@ import { type Habit } from './HabitList';
 
 type HabitItemProps = {
   habit: Habit;
+  deleteHabit: (id: string) => void;
 };
 
-export default function HabitItem({ habit }: HabitItemProps) {
+export default function HabitItem({ habit, deleteHabit }: HabitItemProps) {
   const visibleDates = eachDayOfInterval({
     start: startOfWeek(new Date(), { weekStartsOn: 1 }),
     end: endOfWeek(new Date(), { weekStartsOn: 1 }),
@@ -26,7 +27,11 @@ export default function HabitItem({ habit }: HabitItemProps) {
           <span className="font-medium">{habit.name}</span>
           <span className="text-sm text-amber-400">🔥 3</span>
         </div>
-        <Button variant="ghost-destructive" className="text-xs">
+        <Button
+          onClick={() => deleteHabit(habit.id)}
+          variant="ghost-destructive"
+          className="text-xs"
+        >
           Delete
         </Button>
       </div>
