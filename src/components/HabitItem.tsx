@@ -7,8 +7,10 @@ import {
 } from 'date-fns';
 import Button from './Button';
 import { ru } from 'date-fns/locale';
+import { type Habit } from './HabitList';
+
 type HabitItemProps = {
-  habit: { id: string; name: string };
+  habit: Habit;
 };
 
 export default function HabitItem({ habit }: HabitItemProps) {

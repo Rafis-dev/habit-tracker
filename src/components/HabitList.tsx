@@ -1,8 +1,12 @@
 import HabitItem from './HabitItem';
 
-export default function HabitList() {
-  const habits = [{ id: 'dsf', name: 'Hi' }];
+export type Habit = { id: string; name: string };
 
+type HabitListProps = {
+  habits: Habit[];
+};
+
+export default function HabitList({ habits }: HabitListProps) {
   if (habits.length === 0) {
     return (
       <p className="text-center text-zinc-500 py-12">
