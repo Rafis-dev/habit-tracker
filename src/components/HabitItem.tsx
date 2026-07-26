@@ -9,6 +9,7 @@ import {
 import Button from './Button';
 import { ru } from 'date-fns/locale';
 import { type Habit } from './HabitList';
+import getStreak from '../helper/getStreak';
 
 type HabitItemProps = {
   habit: Habit;
@@ -26,12 +27,16 @@ export default function HabitItem({
     end: endOfWeek(new Date(), { weekStartsOn: 1 }),
   });
 
+  const streak = getStreak(habit.completions);
+
   return (
     <div className="rounded-xl bg-zinc-800 p-4 flex flex-col gap-3">
       <div className="flex item-center justify-between">
         <div className="flex gap-3 items-center">
           <span className="font-medium">{habit.name}</span>
-          <span className="text-sm text-amber-400">🔥 3</span>
+          {streak !== 0 && (
+            <span className="text-sm text-amber-400">🔥 {streak}</span>
+          )}
         </div>
         <Button
           onClick={() => deleteHabit(habit.id)}
