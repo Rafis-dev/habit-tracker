@@ -1,18 +1,8 @@
+import { useHabits } from '../context/useHabits';
 import HabitItem from './HabitItem';
 
-export type Habit = { id: string; name: string; completions: Date[] };
-
-type HabitListProps = {
-  habits: Habit[];
-  deleteHabit: (id: string) => void;
-  toggleHabit: (id: string, date: Date) => void;
-};
-
-export default function HabitList({
-  habits,
-  deleteHabit,
-  toggleHabit,
-}: HabitListProps) {
+export default function HabitList() {
+  const { habits } = useHabits();
   if (habits.length === 0) {
     return (
       <p className="text-center text-zinc-500 py-12">
@@ -24,12 +14,7 @@ export default function HabitList({
   return (
     <div className="flex flex-col gap-3">
       {habits.map(habit => (
-        <HabitItem
-          deleteHabit={deleteHabit}
-          key={habit.id}
-          habit={habit}
-          toggleHabit={toggleHabit}
-        />
+        <HabitItem key={habit.id} habit={habit} />
       ))}
     </div>
   );

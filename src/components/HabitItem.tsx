@@ -8,20 +8,15 @@ import {
 } from 'date-fns';
 import Button from './Button';
 import { ru } from 'date-fns/locale';
-import { type Habit } from './HabitList';
 import getStreak from '../helper/getStreak';
+import { useHabits, type Habit } from '../context/useHabits';
 
 type HabitItemProps = {
   habit: Habit;
-  deleteHabit: (id: string) => void;
-  toggleHabit: (id: string, date: Date) => void;
 };
 
-export default function HabitItem({
-  habit,
-  deleteHabit,
-  toggleHabit,
-}: HabitItemProps) {
+export default function HabitItem({ habit }: HabitItemProps) {
+  const { deleteHabit, toggleHabit } = useHabits();
   const visibleDates = eachDayOfInterval({
     start: startOfWeek(new Date(), { weekStartsOn: 1 }),
     end: endOfWeek(new Date(), { weekStartsOn: 1 }),
