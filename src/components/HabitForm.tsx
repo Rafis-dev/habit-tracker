@@ -22,7 +22,7 @@ export default function HabitForm() {
       py-2
       outline-none focus-visible:ring-2
       focus-visible:ring-violet-500"
-        placeholder="New habit..."
+        placeholder="Новая привычка..."
       />
       <Button
         disabled={name.trim() === ''}

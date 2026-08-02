@@ -20,21 +20,21 @@ export default function Header({ visibleDates, onPrev, onNext }: HeaderProps) {
   return (
     <header className="flex items-center justify-between">
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold">Habit tracker</h1>
+        <h1 className="text-3xl font-bold">Трекер привычек</h1>
         <span className="text-zinc-400 text-sm">
-          {doneToday} / {habits.length} done today
+          {doneToday} / {habits.length} завершено сегодня
         </span>
       </div>
 
       <div className="flex flex-col gap-1 items-end">
         <span className="text-zinc-400 text-sm">{dateRange}</span>
         <div className="flex items-center gap-3">
-          <Button onClick={onPrev}>Prev</Button>
+          <Button onClick={onPrev}>Пред</Button>
           <Button
             onClick={onNext}
             disabled={visibleDates.some(d => isToday(d))}
           >
-            Next
+            След
           </Button>
         </div>
       </div>
