@@ -10,7 +10,7 @@ export default function HabitList({ visibleDates }: HabitListProps) {
   if (habits.length === 0) {
     return (
       <p className="text-center text-zinc-500 py-12">
-        No habits yet. Add one to get started
+        Пока ничего нет. Добавьте привыку, чтобы начать
       </p>
     );
   }
