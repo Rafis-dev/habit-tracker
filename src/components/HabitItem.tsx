@@ -6,9 +6,10 @@ import { useHabits, type Habit } from '../context/useHabits';
 
 type HabitItemProps = {
   habit: Habit;
+  visibleDates: Date[];
 };
 
-export default function HabitItem({ habit }: HabitItemProps) {
+export default function HabitItem({ habit, visibleDates }: HabitItemProps) {
   const { deleteHabit, toggleHabit } = useHabits();
 
   const streak = getStreak(habit.completions);
