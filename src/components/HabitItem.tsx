@@ -28,7 +28,7 @@ export default function HabitItem({ habit, visibleDates }: HabitItemProps) {
           variant="ghost-destructive"
           className="text-xs"
         >
-          Delete
+          Удалить
         </Button>
       </div>
       <div className="flex gap-1.5">

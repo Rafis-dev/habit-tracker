@@ -28,7 +28,7 @@ export default function HabitForm() {
         disabled={name.trim() === ''}
         className="rounded-lg px-4 py-2 font-medium"
       >
-        Add Habit
+        Добавить привычку
       </Button>
     </form>
   );

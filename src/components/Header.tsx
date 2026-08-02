@@ -1,6 +1,7 @@
 import { format, isToday } from 'date-fns';
 import { useHabits } from '../context/useHabits';
 import Button from './Button';
+import { ru } from 'date-fns/locale';
 
 type HeaderProps = {
   visibleDates: Date[];
@@ -15,7 +16,7 @@ export default function Header({ visibleDates, onPrev, onNext }: HeaderProps) {
     h.completions.some(c => isToday(c)),
   ).length;
 
-  const dateRange = `${format(visibleDates[0], 'MMM d')} - ${format(visibleDates.at(-1)!, 'MMM d')}`;
+  const dateRange = `${format(visibleDates[0], 'MMM d', { locale: ru })} - ${format(visibleDates.at(-1)!, 'MMM d', { locale: ru })}`;
 
   return (
     <header className="flex items-center justify-between">
