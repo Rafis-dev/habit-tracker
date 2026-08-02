@@ -15,10 +15,10 @@ export default function HabitItem({ habit, visibleDates }: HabitItemProps) {
   const streak = getStreak(habit.completions);
 
   return (
-    <div className="rounded-xl bg-zinc-800 p-4 flex flex-col gap-3">
+    <div className="rounded-xl bg-zinc-800 p-2 sm:p-4 flex flex-col gap-3 ">
       <div className="flex item-center justify-between">
         <div className="flex gap-3 items-center">
-          <span className="font-medium">{habit.name}</span>
+          <span className="font-medium text-sm sm:text-base">{habit.name}</span>
           {streak !== 0 && (
             <span className="text-sm text-amber-400">🔥 {streak}</span>
           )}
@@ -31,7 +31,7 @@ export default function HabitItem({ habit, visibleDates }: HabitItemProps) {
           Удалить
         </Button>
       </div>
-      <div className="flex gap-1.5">
+      <div className="flex gap-1.5 overflow-x-auto">
         {visibleDates.map(date => (
           <Button
             className="flex flex-1 flex-col items-center gap-0.6 rounded-lg text-sm"
@@ -44,7 +44,7 @@ export default function HabitItem({ habit, visibleDates }: HabitItemProps) {
                 : 'secondary'
             }
           >
-            <span className="font-medium">
+            <span className="font-medium text-xs sm:text-sm">
               {format(date, 'EEE', { locale: ru })}
             </span>
             <span>{format(date, 'd')}</span>

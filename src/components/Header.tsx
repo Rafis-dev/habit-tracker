@@ -19,9 +19,11 @@ export default function Header({ visibleDates, onPrev, onNext }: HeaderProps) {
   const dateRange = `${format(visibleDates[0], 'MMM d', { locale: ru })} - ${format(visibleDates.at(-1)!, 'MMM d', { locale: ru })}`;
 
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center gap-2 justify-between">
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold">Трекер привычек</h1>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
+          Трекер привычек
+        </h1>
         <span className="text-zinc-400 text-sm">
           {doneToday} / {habits.length} завершено сегодня
         </span>
