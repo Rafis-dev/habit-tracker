@@ -1,4 +1,4 @@
-import { format, isToday } from 'date-fns';
+import { format, isThisYear, isToday } from 'date-fns';
 import { useHabits } from '../context/useHabits';
 import Button from './Button';
 import { ru } from 'date-fns/locale';
@@ -30,7 +30,12 @@ export default function Header({ visibleDates, onPrev, onNext }: HeaderProps) {
       <div className="flex flex-col gap-1 items-end">
         <span className="text-zinc-400 text-sm">{dateRange}</span>
         <div className="flex items-center gap-3">
-          <Button onClick={onPrev}>Пред</Button>
+          <Button
+            onClick={onPrev}
+            disabled={visibleDates.some(d => !isThisYear(d))}
+          >
+            Пред
+          </Button>
           <Button
             onClick={onNext}
             disabled={visibleDates.some(d => isToday(d))}
